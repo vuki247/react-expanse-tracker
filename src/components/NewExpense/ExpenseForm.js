@@ -18,6 +18,37 @@ function ExpenseForm() {
     setEnteredDate(event.target.value);
   };
 
+  /* Using one state instead - wrong way
+  
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    eneteredDate: "",
+  });
+
+  const titleChangeHandler = (event) => {
+    setUserInput({
+      ...userInput,
+      enteredTitle: event.target.value,
+    });
+  };
+
+  const amountChangeHandler = (event) => {
+    setUserInput({
+      ...userInput,
+      enteredAmount: event.target.value,
+    });
+  };
+
+  const dateChangeHandler = (event) => {
+    setUserInput({
+      ...userInput,
+      enteredDate: event.target.value,
+    });
+  };
+
+   */
+
   return (
     <form>
       <div className="new-expense__controls">
