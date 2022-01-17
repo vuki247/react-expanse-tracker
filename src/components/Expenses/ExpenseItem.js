@@ -4,8 +4,12 @@ import "./ExpenseItem.css";
 
 function ExpenseItem(props) {
   // document.getElementById('root'); // Imperative way - JS Way
+
+  let title = props.title;
+
   const clickHandler = () => {
-    console.log("Clicked!!!");
+    title = "Updated!";
+    console.log(title);
   };
 
   return (
