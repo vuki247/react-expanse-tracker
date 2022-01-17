@@ -18,7 +18,7 @@ function ExpenseForm() {
     setEnteredDate(event.target.value);
   };
 
-  /* Using one state instead - wrong way
+  /* Using one state instead - wright way (when depending on previous state)
   
   const [userInput, setUserInput] = useState({
     enteredTitle: "",
@@ -27,27 +27,54 @@ function ExpenseForm() {
   });
 
   const titleChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredTitle: event.target.value,
+      // Wrong
+    // setUserInput({ 
+    //   ...userInput,
+    //   enteredTitle: event.target.value,
+    // });
+
+    // Wright way
+    setUserInput((prevState)=>{
+        return {
+            ...userInput,
+       enteredTitle: event.target.value,
+        }
     });
   };
 
   const amountChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredAmount: event.target.value,
+      // Wrong
+    // setUserInput({
+    //   ...userInput,
+    //   enteredAmount: event.target.value,
+    // });
+
+    // Wright
+    setUserInput((prevState)=>{
+        return {
+            ...userInput,
+       enteredAmount: event.target.value,
+        }
     });
   };
 
   const dateChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredDate: event.target.value,
+      // Wrong
+    // setUserInput({
+    //   ...userInput,
+    //   enteredDate: event.target.value,
+    // });
+
+    // Wright
+    setUserInput((prevState)=>{
+        return {
+            ...userInput,
+       enteredDate: event.target.value,
+        }
     });
   };
 
-   */
+  */
 
   return (
     <form>
