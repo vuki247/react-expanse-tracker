@@ -18,66 +18,19 @@ function ExpenseForm() {
     setEnteredDate(event.target.value);
   };
 
-  /* Using one state instead - wright way (when depending on previous state)
-  
-  const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    eneteredDate: "",
-  });
+  const submitHandler = (event) => {
+    event.preventDefault();
 
-  const titleChangeHandler = (event) => {
-      // Wrong
-    // setUserInput({ 
-    //   ...userInput,
-    //   enteredTitle: event.target.value,
-    // });
-
-    // Wright way
-    setUserInput((prevState)=>{
-        return {
-            ...userInput,
-       enteredTitle: event.target.value,
-        }
-    });
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+    console.log(expenseData);
   };
-
-  const amountChangeHandler = (event) => {
-      // Wrong
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value,
-    // });
-
-    // Wright
-    setUserInput((prevState)=>{
-        return {
-            ...userInput,
-       enteredAmount: event.target.value,
-        }
-    });
-  };
-
-  const dateChangeHandler = (event) => {
-      // Wrong
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value,
-    // });
-
-    // Wright
-    setUserInput((prevState)=>{
-        return {
-            ...userInput,
-       enteredDate: event.target.value,
-        }
-    });
-  };
-
-  */
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
